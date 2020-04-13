@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/kertox662/TicTacToeOnline/internal/tttserver"
+	"github.com/kertox662/TicTacToeOnline/pkg/tttserver"
 )
 
 func main() {
