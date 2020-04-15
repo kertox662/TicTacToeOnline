@@ -28,6 +28,15 @@ type UserStats struct {
 	Rating          int
 }
 
+//LeaderboardRow holds the data for a row when the leaderboards are requested
+type LeaderboardRow struct {
+	Username    string
+	GamesPlayed int
+	NumWins     int
+	NumLosses   int
+	Rating      int
+}
+
 //GameData represents a generic game that has data
 type GameData interface {
 	GetGameType() int
