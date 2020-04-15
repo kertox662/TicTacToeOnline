@@ -5,6 +5,8 @@ import "github.com/kertox662/TicTacToeOnline/pkg/data"
 
 //Reader enables reading of the data from the storage method
 type Reader interface {
+	Initialize()
+
 	GetUserStats(username string) data.UserStats
 	GetUserEmail(username string) string
 	GetValidationToken(username string) int
@@ -13,6 +15,8 @@ type Reader interface {
 
 //Writer enables the writing to the the data in server storage
 type Writer interface {
+	Initialize()
+
 	//Profile Management
 	CreateUser(data.UserCredentials) error
 	ChangeName(data.UserCredentials) error
