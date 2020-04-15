@@ -8,10 +8,11 @@ type Reader interface {
 	Initialize()
 
 	GetUserStats(username string) []data.UserStats
-	GetLeaderboards(numPlayers, numConnect, boardSize int) []data.UserStats
+	GetLeaderboards(numPlayers, numConnect, boardSize int) []data.LeaderboardRow
 	GetUserEmail(username string) string
 	GetValidationToken(username string) int
 	GetAuthToken(username string) int
+	VerifyPassword(username, password string) bool
 }
 
 //Writer enables the writing to the the data in server storage
@@ -24,6 +25,7 @@ type Writer interface {
 	ChangeEmail(data.UserCredentials) error
 	ChangePassword(data.UserCredentials) error
 	DeleteUser(data.UserCredentials)
+	GenerateValidationToken(username string)
 	ValidateUser(username string, token int)
 
 	//Authentication
