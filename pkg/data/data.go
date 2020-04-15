@@ -25,6 +25,7 @@ type UserStats struct {
 	GamesPlayed     int
 	NumWins         int
 	NumLosses       int
+	Rating          int
 }
 
 //GameData represents a generic game that has data
