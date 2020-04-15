@@ -7,7 +7,8 @@ import "github.com/kertox662/TicTacToeOnline/pkg/data"
 type Reader interface {
 	Initialize()
 
-	GetUserStats(username string) data.UserStats
+	GetUserStats(username string) []data.UserStats
+	GetLeaderboards(numPlayers, numConnect, boardSize int) []data.UserStats
 	GetUserEmail(username string) string
 	GetValidationToken(username string) int
 	GetAuthToken(username string) int
