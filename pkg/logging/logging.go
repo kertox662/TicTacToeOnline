@@ -3,10 +3,10 @@ package logging
 const ( //Logging levels
 	//Unknown is the level set when setting an invalid level
 	Unknown = iota
-	//Info is the level to set for displaying information
-	Info
 	//Debug is the level to set for displaying information for debugging
 	Debug
+	//Info is the level to set for displaying information
+	Info
 	//Warning is the level to set for when encountering warnings
 	Warning
 	//Error is the level to set for raising errors
