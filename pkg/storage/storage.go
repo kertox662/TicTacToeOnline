@@ -3,6 +3,15 @@ package storage
 
 import "github.com/kertox662/TicTacToeOnline/pkg/data"
 
+//Storage is an interface that will be used to read and write to user data.
+type Storage interface {
+	Reader
+	Writer
+}
+
+//GStorage is the global variable for accessing the storage
+var GStorage Storage
+
 //Reader enables reading of the data from the storage method
 type Reader interface {
 	Initialize()
@@ -10,8 +19,8 @@ type Reader interface {
 	GetUserStats(username string) []data.UserStats
 	GetLeaderboards(numPlayers, numConnect, boardSize int) []data.LeaderboardRow
 	GetUserEmail(username string) string
-	GetValidationToken(username string) int
-	GetAuthToken(username string) int
+	GetValidationToken(username string) string
+	GetAuthToken(username string) string
 	VerifyPassword(username, password string) bool
 }
 
@@ -24,9 +33,9 @@ type Writer interface {
 	ChangeName(data.UserCredentials) error
 	ChangeEmail(data.UserCredentials) error
 	ChangePassword(data.UserCredentials) error
-	DeleteUser(data.UserCredentials)
+	DeleteUser(data.UserCredentials) error
 	GenerateValidationToken(username string)
-	ValidateUser(username string, token int)
+	ValidateUser(username string, token string) bool
 
 	//Authentication
 	GenerateAuthToken(username string) int
