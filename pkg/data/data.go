@@ -1,6 +1,6 @@
 package data
 
-const ( //BoardSize Enum
+const ( //BoardSize Enum represents three separate sizes for a tic-tac-toe board
 	//BoardStd is the standard size for a board
 	BoardStd = iota + 1
 	//BoardBig is the bigger size for a board
@@ -14,7 +14,7 @@ type UserCredentials struct {
 	Username string `json:"username"`
 	Email    string `json:"email"`
 	Password string `json:"password"`
-	Token    int    `json:"token"`
+	Token    string `json:"token"`
 }
 
 //UserStats hold the game stats for a user
@@ -44,11 +44,12 @@ type GameData interface {
 
 //TicTacToeData represents the data for a game of TicTacToe
 type TicTacToeData struct {
-	NumPlayers  int
-	BoardSize   int //Enum
-	NumConnect  int
-	UserIDs     []int
-	WinnerIndex int
+	NumPlayers int
+	BoardSize  int //Enum
+	NumConnect int
+	UserIDs    []int
+	WinnerID   int
+	IsRated    bool
 }
 
 //GetGameType returns the gametype of a TicTacToe game
